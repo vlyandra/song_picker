@@ -3,8 +3,8 @@ require 'json'
 require 'yaml'
 require '../song_picker/playlists'
 
-CLIENT_ID = ENV["SPOTIFY_ID"]
-CLIENT_SECRET = ENV["SPOTIFY_SECRET"]
+CLIENT_ID = ENV["SPOTIFY_CLIENT_ID"]
+CLIENT_SECRET = ENV["SPOTIFY_CLIENT_SECRET"]
 
 uri = URI('https://accounts.spotify.com/api/token')
 req = Net::HTTP::Post.new(uri)

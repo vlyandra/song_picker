@@ -37,5 +37,3 @@ class SongPicker
     end
   end
 end
-
-puts SongPicker.new.pick
