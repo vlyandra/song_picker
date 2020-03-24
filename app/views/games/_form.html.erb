@@ -1,0 +1,4 @@
+<%= form_with model: @game do |f| %>
+  <%= f.select(:category_id, Category.all, multiple: true) %>
+  <%= f.submit "Start!" %>
+<% end %>
