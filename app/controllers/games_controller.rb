@@ -4,14 +4,13 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
-    @game.categories = Category.where("id in ?", params[:category_ids])
-    @game.save
+    @game = Game.create!(game_params)
+    render "guesses/new", game: @game
   end
 
   private
 
   def game_params
-    params.require(:game).permit(:start, :end)
+    params.require(:game).permit(:start, :end, categories: [:name, :id])
   end
 end

@@ -6,4 +6,10 @@ class Game < ApplicationRecord
   def pick_song
     Song.for_categories(categories).where.not(id: songs).order("RANDOM()").first
   end
+
+  def category_ids=(ids)
+    ids.each do |id|
+      categories << Category.find(id)
+    end
+  end
 end

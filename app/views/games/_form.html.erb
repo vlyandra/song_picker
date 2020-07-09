@@ -1,4 +1,12 @@
 <%= form_with model: @game do |f| %>
-  <%= f.select(:category_id, Category.all, multiple: true) %>
+  <%= fields_for :categories, @game.categories do |cat_field| %>
+  <% Category.all.find_each do |category| %>
+    <ul>
+      <%= cat_field.check_box(:id, {multiple: true}, category.id, false) %>
+      <%= label(:categories, category.name) %>
+    </ul>
+  <% end %>
+  <% end %>
+
   <%= f.submit "Start!" %>
 <% end %>
